@@ -34,6 +34,7 @@ app.use(httpLogger);
 "It's not that I'm so smart, it's just that I stay with problems longer.", 
 "It is pitch dark. You are likely to be eaten by a grue."]
   
+app.use('/', express.static(__dirname + '/test'));
  
 app.get('/getMessage', function (req, res) {
 	randomNumber = Math.floor(Math.random() * message.length);
