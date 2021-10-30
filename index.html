@@ -1,0 +1,33 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		Hi
+	</head>
+<body onload = "myFunc()">
+
+<p>Results</p>   
+  <div id = "sth"></div>
+
+</body>
+
+<script type="text/javascript">
+    function myFunc() {
+		var apiUrl = 'http://localhost:3001/getMessage/';
+    fetch(apiUrl).then(response => {
+      return response.json();
+    }).then(data => {
+      // Work with JSON data here
+      console.log(data.msg);
+	  const msgRetrieved = document.querySelector('#sth')
+	  msgRetrieved.innerHTML = `<h4> msg is : ${data.msg}  </h4>`
+	  return data.msg;
+    }).catch(err => {
+      // Do something for an error here
+    });
+	}
+	
+
+</script>
+</html>
